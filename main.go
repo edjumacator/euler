@@ -50,7 +50,21 @@ func getDesiredLength() int {
 }
 
 func isInDivisibleRangeWereLookingFor(smallestNumber int, desiredRangeLength int) bool {
-	return true
+	// Create a loop that starts at 1 (There are no multiples of zero) and ends at the desiredRangeLength
+	for i := 1; i <= desiredRangeLength; i++ {
+		// If the current number is a multiple of the smallestNumber
+		isMultipleOfSmallestNumber := smallestNumber % i == 0
+
+		if isMultipleOfSmallestNumber {
+			fmt.Println("--------------------------");
+			fmt.Printf("The smallest number is: %d\nand the current value of i is: %+v\n",smallestNumber, i);
+			fmt.Println("--------------------------");
+
+			// Current ToDo: It never makes it past the first iteration of the loop because every single number is divisible by 1...
+			return true
+		}
+	}
+	return false
 }
 
 // findSmallestDivisibleRange finds the smallest number in a given range that forms a divisible range of a specified length.
